@@ -8,16 +8,32 @@
  */
 int binary_tree_balance(const binary_tree_t *tree)
 {
-	int bal = 0;
-	int heightLeft = 0, heightRight = 0;
+	int heightLeft, heightRight;
 
 	if (!tree)
 		return (0);
 
-	heightLeft = tree->left ? (int)binary_tree_balance(tree->left) + 1 : 0;
-	heightRight = tree->right ? (int)binary_tree_balance(tree->right) + 1 : 0;
+	heightLeft = tree->left ? (int)binary_tree_height(tree->left) : -1;
+	heightRight = tree->right ? (int)binary_tree_height(tree->right) : -1;
 
-	bal = heightLeft - heightRight;
+	return (heightLeft - heightRight);
+}
 
-	return (bal);
+/**
+ * binary_tree_height - func
+ * @tree: arg
+ *
+ * Return: Result
+ */
+size_t binary_tree_height(const binary_tree_t *tree)
+{
+	size_t heightLeft = 0;
+	size_t heightRight = 0;
+
+	if (!tree)
+		return (0);
+
+	heightLeft = tree->left ? 1 + binary_tree_height(tree->left) : 0;
+	heightRight = tree->right ? 1 + binary_tree_height(tree->right) : 0;
+	return (heightLeft > heightRight ? heightLeft : heightRight);
 }
