@@ -19,9 +19,25 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	myHeight = binary_tree_height(tree);
 	myNodes = binary_tree_size(tree);
 
-	for (i =0; i < myHeight + 1; i++)
-		pow *= 2;
+	pow = (size_t)powRec(2, myHeight + 1);
 	return (pow - 1 == myNodes);
+}
+
+/**
+ * powRec - func
+ * @x: arg1
+ * @y: arg2
+ * Return: Result
+ */
+
+int powRec(int a, int b)
+{
+	if (b < 0)
+		return (-1);
+	if (b == 0)
+		return (1);
+	else
+		return (a * powRec(a, b - 1));
 }
 
 /**
