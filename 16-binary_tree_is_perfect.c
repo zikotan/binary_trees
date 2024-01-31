@@ -57,8 +57,8 @@ size_t binary_tree_height(const binary_tree_t *tree)
 
 /**
  * powRec - func
- * @x: arg1
- * @y: arg2
+ * @a: arg1
+ * @b: arg2
  * Return: Result
  */
 int powRec(int a, int b)
