@@ -1,23 +1,6 @@
 #include "binary_trees.h"
 
 /**
- * powRec - func
- * @x: arg1
- * @y: arg2
- * Return: Result
- */
-
-int powRec(int a, int b)
-{
-	if (b < 0)
-		return (-1);
-	if (b == 0)
-		return (1);
-	else
-		return (a * powRec(a, b - 1));
-}
-
-/**
  * binary_tree_is_perfect - func
  * @tree: arg
  *
@@ -70,4 +53,21 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	heightLeft = tree->left ? 1 + binary_tree_height(tree->left) : 0;
 	heightRight = tree->right ? 1 + binary_tree_height(tree->right) : 0;
 	return (heightLeft > heightRight ? heightLeft : heightRight);
+}
+
+/**
+ * powRec - func
+ * @x: arg1
+ * @y: arg2
+ * Return: Result
+ */
+
+int powRec(int a, int b)
+{
+	if (b < 0)
+		return (-1);
+	if (b == 0)
+		return (1);
+	else
+		return (a * powRec(a, b - 1));
 }
