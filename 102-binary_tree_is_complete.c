@@ -11,11 +11,9 @@
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
 	size_t size;
-
 	if (!tree)
 		return (0);
 	size = binary_tree_size(tree);
-
 	return (otherAssist(tree, 0, size));
 }
 
@@ -31,10 +29,8 @@ int otherAssist(const binary_tree_t *tree, size_t index, size_t size)
 {
 	if (!tree)
 		return (1);
-
 	if (index >= size)
 		return (0);
-
 	return (otherAssist(tree->left, 2 * index + 1, size) &&
 		otherAssist(tree->right, 2 * index + 2, size));
 }
