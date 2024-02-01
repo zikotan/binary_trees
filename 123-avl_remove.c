@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 
 /**
- * array_to_avl - func
+ * avl_remove - func
  * @root: arg1
  * @value: arg2
  *
