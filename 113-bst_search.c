@@ -2,7 +2,7 @@
 
 /**
  * bst_search - func
- * @parent: arg1
+ * @tree: arg1
  * @value: arg2
  *
  * Return: Result
