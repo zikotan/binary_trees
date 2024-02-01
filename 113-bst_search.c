@@ -9,18 +9,18 @@
  */
 bst_t *bst_search(const bst_t *tree, int value)
 {
-	bst_t *node = (bst_t *)tree;
+	bst_t *myNode = (bst_t *)tree;
 
 	if (!tree)
 		return (NULL);
-	while (node)
+	while (myNode)
 	{
-		if (value < node->n)
-			node = node->left;
-		else if (value > node->n)
-			node = node->right;
+		if (value < myNode->n)
+			myNode = myNode->left;
+		else if (value > myNode->n)
+			myNode = myNode->right;
 		else
-			return (node);
+			return (myNode);
 	}
 	return (NULL);
 }
