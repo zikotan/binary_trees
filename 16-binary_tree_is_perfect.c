@@ -49,7 +49,6 @@ size_t binary_tree_height(const binary_tree_t *tree)
 
 	if (!tree)
 		return (0);
-
 	heightLeft = tree->left ? 1 + binary_tree_height(tree->left) : 0;
 	heightRight = tree->right ? 1 + binary_tree_height(tree->right) : 0;
 	return (heightLeft > heightRight ? heightLeft : heightRight);
@@ -63,10 +62,10 @@ size_t binary_tree_height(const binary_tree_t *tree)
  */
 int powRec(int a, int b)
 {
-	if (b < 0)
-		return (-1);
 	if (b == 0)
 		return (1);
+	else if (b < 0)
+		return (-1);
 	else
 		return (a * powRec(a, b - 1));
 }
