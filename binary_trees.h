@@ -71,5 +71,7 @@ int assist3(const binary_tree_t *tree, int min, int max);
 bst_t *bst_min_val(bst_t *root);
 int assist4(const binary_tree_t *tree, int min, int max);
 void assist5(avl_t **root, int *array, size_t low, size_t upp);
+int assist6(const binary_tree_t *tree);
+int assist7(const binary_tree_t *tree, size_t ind, size_t s);
 
 #endif
