@@ -62,5 +62,6 @@ int powRec(int a, int b);
 void assist(const binary_tree_t *tree, void (*func)(int), size_t level);
 int otherAssist(const binary_tree_t *tree, size_t index, size_t size);
 int assist3(const binary_tree_t *tree, int min, int max);
+bst_t *bst_min_val(bst_t *root);
 
 #endif
