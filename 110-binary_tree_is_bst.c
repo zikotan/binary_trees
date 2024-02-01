@@ -27,7 +27,6 @@ int assist3(const binary_tree_t *tree, int min, int max)
 		return (1);
 	if (tree->n < min || tree->n > max)
 		return (0);
-
 	return (assist3(tree->left, min, tree->n - 1) &&
 		assist3(tree->right, tree->n + 1, max));
 }

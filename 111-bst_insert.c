@@ -11,11 +11,10 @@ bst_t *bst_insert(bst_t **tree, int value)
 {
 	bst_t *help = NULL, *two = NULL, *newNode = NULL;
 
-	if (!tree)
-		return (NULL);
 	if (*tree == NULL)
 		return (*tree = binary_tree_node(NULL, value));
-
+	if (!tree)
+		return (NULL);
 	help = *tree;
 	while (help)
 	{
@@ -27,7 +26,6 @@ bst_t *bst_insert(bst_t **tree, int value)
 		else
 			help = help->right;
 	}
-
 	newNode = binary_tree_node(NULL, value);
 	if (two == NULL)
 		two = newNode;
@@ -41,6 +39,5 @@ bst_t *bst_insert(bst_t **tree, int value)
 		two->right = newNode;
 		newNode->parent = two;
 	}
-
 	return (newNode);
 }
