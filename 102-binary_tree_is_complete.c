@@ -1,16 +1,15 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_is_complete - checks if a binary tree is complete
- * @tree: a pointer to the root node of the tree to check
+ * binary_tree_is_complete - func
+ * @tree: arg
  *
- * Return: 1 if the tree is complete
- *         0 if the tree is not complete
- *         0 if tree is NULL
+ * Return: Result
  */
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
 	size_t size;
+	
 	if (!tree)
 		return (0);
 	size = binary_tree_size(tree);
