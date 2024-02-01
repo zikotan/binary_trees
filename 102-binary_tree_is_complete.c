@@ -9,7 +9,7 @@
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
 	size_t size;
-	
+
 	if (!tree)
 		return (0);
 	size = binary_tree_size(tree);
