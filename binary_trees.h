@@ -61,7 +61,7 @@ int binary_tree_is_avl(const binary_tree_t *tree);
 avl_t *avl_insert(avl_t **tree, int value);
 avl_t *array_to_avl(int *array, size_t size);
 avl_t *avl_remove(avl_t *root, int value);
-void assist5(avl_t **root, int *array, size_t low, size_t upp);
+avl_t *sorted_array_to_avl(int *array, size_t size);
 
 int powRec(int a, int b);
 void assist(const binary_tree_t *tree, void (*func)(int), size_t level);
