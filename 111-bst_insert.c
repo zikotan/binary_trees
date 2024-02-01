@@ -9,14 +9,12 @@
  */
 bst_t *bst_insert(bst_t **tree, int value)
 {
-	bst_t *help = NULL;
-	bst_t *two = NULL;
-	bst_t *newNode = NULL;
+	bst_t *help = NULL, *two = NULL, *newNode = NULL;
 
-	if (*tree == NULL)
-		return (*tree = binary_tree_node(NULL, value));
 	if (!tree)
 		return (NULL);
+	if (*tree == NULL)
+		return (*tree = binary_tree_node(NULL, value));
 
 	help = *tree;
 	while (help)
