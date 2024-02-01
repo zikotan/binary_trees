@@ -2,7 +2,7 @@
 
 /**
  * bst_remove - func
- * @tree: arg1
+ * @root: arg1
  * @value: arg2
  *
  * Return: Result
@@ -39,7 +39,7 @@ bst_t *bst_remove(bst_t *root, int value)
 }
 
 /**
- * bst_search - func
+ * bst_min_val - func
  * @root: arg
  *
  * Return: Result
