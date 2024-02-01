@@ -1,6 +1,44 @@
 #include "binary_trees.h"
 
 /**
+ * bst_insert - func
+ * @tree: arg1
+ * @value: arg2
+ *
+ * Return: Result
+ */
+bst_t *bst_insert(bst_t **tree, int value)
+{
+	bst_t *help = *tree, *two = NULL, *newNode = binary_tree_node(NULL, value);
+
+	if (*tree == NULL)
+		*tree = newNode;
+	while (help)
+	{
+		two = help;
+		if (value < help->n)
+			help = help->left;
+		else if (value > help->n)
+			help = help->right;
+		else if (value == help->n)
+			return (NULL);
+	}
+	if (two == NULL)
+		two = newNode;
+	else if (value < two->n)
+	{
+		two->left = newNode;
+		newNode->parent = two;
+	}
+	else
+	{
+		two->right = newNode;
+		newNode->parent = two;
+	}
+	return (newNode);
+}
+
+/**
  * avl_insert - func
  * @tree: arg1
  * @value: arg2
@@ -30,42 +68,3 @@ avl_t *avl_insert(avl_t **tree, int value)
 	}
 	return (myNode);
 }
-
-/**
- * bst_insert - func
- * @tree: arg1
- * @value: arg2
- *
- * Return: Result
- */
-bst_t *bst_insert(bst_t **tree, int value)
-{
-	bst_t *help = *tree, *two = NULL, *newNode = binary_tree_node(NULL, value);
-
-	if (*tree == NULL)
-		*tree = newNode;
-	while (help)
-	{
-		two = help;
-		if (value < help->n)
-			help = help->left;
-		else if (value > help->n)
-			help = help->right;
-		else
-			return (NULL);
-	}
-	if (two == NULL)
-		two = newNode;
-	else if (value < two->n)
-	{
-		two->left = newNode;
-		newNode->parent = two;
-	}
-	else
-	{
-		two->right = newNode;
-		newNode->parent = two;
-	}
-	return (newNode);
-}
-
