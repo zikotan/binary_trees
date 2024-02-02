@@ -9,46 +9,66 @@
  */
 bst_t *bst_remove(bst_t *root, int value)
 {
-	bst_t *help = NULL;
+	bst_t *myNode = NULL, *myLeaf;
 
-	if (!root)
-		return (NULL);
-	if (value < root->n)
-		root->left = bst_remove(root->left, value);
-	else if (value > root->n)
-		root->right = bst_remove(root->right, value);
-	else
+	myLeaf = bst_search(root, value);
+	if (myLeaf == NULL)
+		return (root);
+	if (myLeaf->left != NULL && myLeaf->right == NULL)
 	{
-		if (!root->left)
+		for (myNode = myLeaf->left; myNode->right != NULL; myNode = myNode->right)
+			;
+		if (myNode != myLeaf->left)
 		{
-			help = root->right;
-			free(root);
-			return (help);
+			myNode->parent->right = myNode->left;
+			myNode->left = myLeaf->left;
 		}
-		else if (!root->right)
-		{
-			help = root->left;
-			free(root);
-			return (help);
-		}
-		help = myMin(root->right);
-		root->n = help->n;
-		root->right = bst_remove(root->right, help->n);
+		myNode->right = myLeaf->right, myNode->parent = myLeaf->parent;
 	}
+	else if (myLeaf->right != NULL)
+	{
+		for (myNode = myLeaf->right; myNode->left != NULL; myNode = myNode->left)
+			;
+		if (myNode != myLeaf->right)
+		{
+			myNode->parent->left = myNode->right;
+			myNode->right = myLeaf->right;
+		}
+		myNode->left = myLeaf->left, myNode->parent = myLeaf->parent;
+	}
+	if (myLeaf->parent != NULL && myLeaf->parent->right == myLeaf)
+		myLeaf->parent->right = myNode;
+	if (myLeaf->parent != NULL && myLeaf->parent->left == myLeaf)
+		myLeaf->parent->left = myNode;
+	free(myLeaf);
+	if (myNode->right != NULL && myNode != NULL)
+		myNode->right->parent = myNode;
+	if (myNode->left != NULL && myNode != NULL)
+		myNode->left->parent = myNode;
+	if (myNode->parent == NULL)
+		return (myNode);
 	return (root);
 }
 
 /**
- * myMin - func
- * @myRoot: arg
+ * bst_search - func
+ * @tree: arg1
+ * @value: arg2
  *
  * Return: Result
  */
-bst_t *myMin(bst_t *myRoot)
+bst_t *bst_search(bst_t const *tree, int value)
 {
-	bst_t *m = myRoot;
+	bst_t const *myLeaf;
 
-	while (m->left)
-		m = m->left;
-	return (m);
+	myLeaf = tree;
+	while (myLeaf != NULL && myLeaf->n != value)
+	{
+		if (value > myLeaf->n)
+			myLeaf = myLeaf->right;
+
+		else if (value < myLeaf->n)
+			myLeaf = myLeaf->left;
+	}
+	return ((bst_t *)myLeaf);
 }
