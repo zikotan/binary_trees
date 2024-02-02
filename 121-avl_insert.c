@@ -39,20 +39,24 @@ avl_t *avl_insert(avl_t **tree, int value)
  */
 bst_t *bst_insert(bst_t **tree, int value)
 {
-	bst_t *help = *tree, *two = NULL, *newNode = binary_tree_node(NULL, value);
+	bst_t *help = NULL, *two = NULL, *newNode = NULL;
 
 	if (*tree == NULL)
-		*tree = newNode;
+		return (*tree = binary_tree_node(NULL, value));
+	if (!tree)
+		return (NULL);
+	help = *tree;
 	while (help)
 	{
 		two = help;
-		if (value < help->n)
-			help = help->left;
-		else if (value > help->n)
-			help = help->right;
-		else
+		if (value == help->n)
 			return (NULL);
+		else if (value < help->n)
+			help = help->left;
+		else
+			help = help->right;
 	}
+	newNode = binary_tree_node(NULL, value);
 	if (two == NULL)
 		two = newNode;
 	else if (value < two->n)
