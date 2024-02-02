@@ -69,14 +69,11 @@ int heap_extract(heap_t **root);
 int *heap_to_sorted_array(heap_t *heap, size_t *size);
 
 int powRec(int a, int b);
-void assist(const binary_tree_t *tree, void (*func)(int), size_t level);
-int otherAssist(const binary_tree_t *tree, size_t index, size_t size);
+void assist1(const binary_tree_t *tree, void (*func)(int), size_t level);
+int assist2(const binary_tree_t *tree, size_t ind, size_t s);
 int assist3(const binary_tree_t *tree, int min, int max);
-bst_t *myMin(bst_t *root);
-int assist4(const binary_tree_t *tree, int min, int max);
-void assist5(avl_t **root, int *array, size_t low, size_t upp);
-int assist6(const binary_tree_t *tree);
-int assist7(const binary_tree_t *tree, size_t ind, size_t s);
+void assist4(avl_t **root, int *array, size_t low, size_t upp);
+int assist5(const binary_tree_t *tree);
 void myPreorder(heap_t *myTree, heap_t **myNode, size_t h);
 void myHeap(heap_t *myRoot);
 

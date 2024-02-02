@@ -10,7 +10,7 @@ int binary_tree_is_heap(const binary_tree_t *tree)
 {
 	if (!tree)
 		return (0);
-	return (assist6(tree));
+	return (assist5(tree));
 }
 
 /**
@@ -26,7 +26,7 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 	size = binary_tree_size(tree);
-	return (assist7(tree, 0, size));
+	return (assist2(tree, 0, size));
 }
 
 /**
@@ -48,7 +48,7 @@ size_t binary_tree_size(const binary_tree_t *tree)
  *
  * Return: Result
  */
-int assist6(const binary_tree_t *tree)
+int assist5(const binary_tree_t *tree)
 {
 	if (!tree)
 		return (1);
@@ -60,8 +60,8 @@ int assist6(const binary_tree_t *tree)
 	if (tree->right)
 		if (tree->right->n > tree->n)
 			return (0);
-	return (assist6(tree->left) &&
-		assist6(tree->right));
+	return (assist5(tree->left) &&
+		assist5(tree->right));
 }
 
 /**
@@ -72,13 +72,13 @@ int assist6(const binary_tree_t *tree)
  *
  * Return: Result
  */
-int assist7(const binary_tree_t *tree, size_t ind, size_t s)
+int assist2(const binary_tree_t *tree, size_t ind, size_t s)
 {
 	if (!tree)
 		return (1);
 	if (ind >= s)
 		return (0);
-	return (assist7(tree->left, 2 * ind + 1, s) &&
-		assist7(tree->right, 2 * ind + 2, s));
+	return (assist2(tree->left, 2 * ind + 1, s) &&
+		assist2(tree->right, 2 * ind + 2, s));
 }
 

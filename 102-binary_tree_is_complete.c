@@ -13,7 +13,7 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 	size = binary_tree_size(tree);
-	return (otherAssist(tree, 0, size));
+	return (assist2(tree, 0, size));
 }
 
 /**
@@ -24,14 +24,14 @@ int binary_tree_is_complete(const binary_tree_t *tree)
  *
  * Return: Result
  */
-int otherAssist(const binary_tree_t *tree, size_t index, size_t size)
+int assist2(const binary_tree_t *tree, size_t ind, size_t s)
 {
 	if (!tree)
 		return (1);
-	if (index >= size)
+	if (ind >= s)
 		return (0);
-	return (otherAssist(tree->left, 2 * index + 1, size) &&
-		otherAssist(tree->right, 2 * index + 2, size));
+	return (assist2(tree->left, 2 * ind + 1, s) &&
+		assist2(tree->right, 2 * ind + 2, s));
 }
 
 #include "binary_trees.h"

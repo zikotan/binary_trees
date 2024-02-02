@@ -10,7 +10,7 @@ int binary_tree_is_avl(const binary_tree_t *tree)
 {
 	if (!tree)
 		return (0);
-	return (assist4(tree, INT_MIN, INT_MAX));
+	return (assist3(tree, INT_MIN, INT_MAX));
 }
 
 /**
@@ -38,7 +38,7 @@ size_t binary_tree_height(const binary_tree_t *tree)
  *
  * Return: Result
  */
-int assist4(const binary_tree_t *tree, int min, int max)
+int assist3(const binary_tree_t *tree, int min, int max)
 {
 	int pathLeft, pathRight;
 
@@ -50,6 +50,6 @@ int assist4(const binary_tree_t *tree, int min, int max)
 	pathRight = tree->right ? 1 + binary_tree_height(tree->right) : 0;
 	if (abs(pathLeft - pathRight) > 1)
 		return (0);
-	return (assist4(tree->left, min, tree->n - 1) &&
-		assist4(tree->right, tree->n + 1, max));
+	return (assist3(tree->left, min, tree->n - 1) &&
+		assist3(tree->right, tree->n + 1, max));
 }

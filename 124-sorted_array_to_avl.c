@@ -17,8 +17,8 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 	middle = (size - 1) / 2;
 	tree = binary_tree_node(NULL, array[middle]);
 
-	assist5(&tree, array, -1, middle);
-	assist5(&tree, array, middle, size);
+	assist4(&tree, array, -1, middle);
+	assist4(&tree, array, middle, size);
 	return (tree);
 }
 
@@ -29,7 +29,7 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
  * @low: arg3
  * @upp: arg4
  */
-void assist5(avl_t **root, int *array, size_t low, size_t upp)
+void assist4(avl_t **root, int *array, size_t low, size_t upp)
 {
 	avl_t *newNode = NULL;
 	size_t center;
@@ -42,7 +42,7 @@ void assist5(avl_t **root, int *array, size_t low, size_t upp)
 			(*root)->right = newNode;
 		else if (array[center] < (*root)->n)
 			(*root)->left = newNode;
-		assist5(&newNode, array, low, center);
-		assist5(&newNode, array, center, upp);
+		assist4(&newNode, array, low, center);
+		assist4(&newNode, array, center, upp);
 	}
 }
