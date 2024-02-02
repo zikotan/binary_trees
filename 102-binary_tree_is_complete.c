@@ -19,7 +19,7 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 /**
  * assist2 - func
  * @tree: arg1
- * @tree: arg2
+ * @ind: arg2
  * @s: arg3
  *
  * Return: Result
