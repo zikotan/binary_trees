@@ -23,7 +23,7 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 }
 
 /**
- * assist5 - func
+ * assist4 - func
  * @root: arg1
  * @array: arg2
  * @low: arg3

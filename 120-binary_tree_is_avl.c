@@ -31,7 +31,7 @@ size_t binary_tree_height(const binary_tree_t *tree)
 }
 
 /**
- * assist4 - func
+ * assist3 - func
  * @tree: arg1
  * @min: arg2
  * @max: arg3

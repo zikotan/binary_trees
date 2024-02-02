@@ -43,7 +43,7 @@ size_t binary_tree_size(const binary_tree_t *tree)
 }
 
 /**
- * assist6 - func
+ * assist5 - func
  * @tree: arg
  *
  * Return: Result
@@ -65,7 +65,7 @@ int assist5(const binary_tree_t *tree)
 }
 
 /**
- * assist7 - func
+ * assist2 - func
  * @tree: arg1
  * @ind: arg2
  * @s: arg3
