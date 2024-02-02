@@ -57,18 +57,20 @@ bst_t *bst_remove(bst_t *root, int value)
  *
  * Return: Result
  */
-bst_t *bst_search(bst_t const *tree, int value)
+bst_t *bst_search(const bst_t *tree, int value)
 {
-	bst_t const *myLeaf;
+	bst_t *myNode = (bst_t *)tree;
 
-	myLeaf = tree;
-	while (myLeaf != NULL && myLeaf->n != value)
+	if (!tree)
+		return (NULL);
+	while (myNode)
 	{
-		if (value > myLeaf->n)
-			myLeaf = myLeaf->right;
-
-		else if (value < myLeaf->n)
-			myLeaf = myLeaf->left;
+		if (value < myNode->n)
+			myNode = myNode->left;
+		else if (value > myNode->n)
+			myNode = myNode->right;
+		else
+			return (myNode);
 	}
-	return ((bst_t *)myLeaf);
+	return (NULL);
 }
